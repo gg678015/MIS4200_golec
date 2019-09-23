@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Gamma Phi Beta</h1>
+    <p class="lead">Welcome to the home page for the Gamma Phi Beta Chapter at Ohio Universtiy!</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Getting started</h2>
+        <p>
+            We are happy you have found our page, we were charted in 2015 and currently have 115 members. We are looking for 10 more women to join our chapter!
+        </p>
+        @Html.ActionLink("Employee", "Index", "Departments")
+        @Html.ActionLink("Employeers", "Index", "Employees")
+        @Html.ActionLink("Department", "Index", "Employeers")
+    </div>
+    <div class="col-md-4">
+        <h2>How to Join</h2>
+        <p>We are holding events at our house on September 17th from 7 - 9 PM and on September 19th from 5 - 7 PM.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>How to RSVP</h2>
+        <p>Visit our contact page and email our MVP to resgister!</p>
+    </div>
+</div>
