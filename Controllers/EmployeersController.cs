@@ -6,18 +6,19 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MIS4200_golec.DAL;
 using MIS4200_golec.Models;
 
 namespace MIS4200_golec.Controllers
 {
     public class EmployeersController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Context db = new Context();
 
         // GET: Employeers
         public ActionResult Index()
         {
-            var employeers = db.Employeers.Include(e => e.Employee);
+            var employeers = db.Employeers.Include(e => e.Departments);
             return View(employeers.ToList());
         }
 
@@ -57,7 +58,7 @@ namespace MIS4200_golec.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName", employeer.employeeId);
+            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName", employeer.employeerId);
             return View(employeer);
         }
 
@@ -73,7 +74,7 @@ namespace MIS4200_golec.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName", employeer.employeeId);
+            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName", employeer.employeerId);
             return View(employeer);
         }
 
@@ -90,7 +91,7 @@ namespace MIS4200_golec.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName", employeer.employeeId);
+            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName", employeer.employeerId);
             return View(employeer);
         }
 

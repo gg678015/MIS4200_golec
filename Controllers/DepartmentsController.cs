@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MIS4200_golec.DAL;
 using MIS4200_golec.Models;
 
 namespace MIS4200_golec.Controllers
 {
     public class DepartmentsController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Context db = new Context();
 
         // GET: Departments
         public ActionResult Index()
@@ -49,7 +50,7 @@ namespace MIS4200_golec.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "departmentsID,qtyOrdered,price,employeerId,employeeId")] Departments departments)
+        public ActionResult Create([Bind(Include = "departmentsID,employeerId,employeeId")] Departments departments)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +86,7 @@ namespace MIS4200_golec.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "departmentsID,qtyOrdered,price,employeerId,employeeId")] Departments departments)
+        public ActionResult Edit([Bind(Include = "departmentsID,employeerId,employeeId")] Departments departments)
         {
             if (ModelState.IsValid)
             {

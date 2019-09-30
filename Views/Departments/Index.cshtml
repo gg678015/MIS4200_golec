@@ -17,12 +17,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Employeer.lastName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.qtyOrdered)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.price)
-        </th>
         <th></th>
     </tr>
 
@@ -33,12 +27,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Employeer.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.qtyOrdered)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.price)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.departmentsID }) |

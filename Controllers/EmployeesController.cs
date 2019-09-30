@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MIS4200_golec.DAL;
 using MIS4200_golec.Models;
 
 namespace MIS4200_golec.Controllers
 {
     public class EmployeesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        private Context db = new Context();
 
         // GET: Employees
         public ActionResult Index()

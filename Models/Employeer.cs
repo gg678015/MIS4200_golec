@@ -16,7 +16,5 @@ namespace MIS4200_golec.Models
         public ICollection<Departments> Departments { get; set; }
         //Order is on the Many side of the one-to-many relation between Customer
         //and Order and we represent that relationship like this
-        public int employeeId { get; set; }
-        public virtual Employee Employee { get; set; }
     }
 }

@@ -31,7 +31,7 @@ namespace MIS4200_golec.Models
             }
         }
 
-        public ICollection<Employeer> employeers { get; set; }
+        public ICollection<Departments> Departments { get; set; }
 
     }
 }
