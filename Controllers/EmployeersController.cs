@@ -18,8 +18,7 @@ namespace MIS4200_golec.Controllers
         // GET: Employeers
         public ActionResult Index()
         {
-            var employeers = db.Employeers.Include(e => e.Departments);
-            return View(employeers.ToList());
+            return View(db.Employeers.ToList());
         }
 
         // GET: Employeers/Details/5
@@ -40,7 +39,6 @@ namespace MIS4200_golec.Controllers
         // GET: Employeers/Create
         public ActionResult Create()
         {
-            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName");
             return View();
         }
 
@@ -49,7 +47,7 @@ namespace MIS4200_golec.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "employeerId,lastName,firstName,employeeId")] Employeer employeer)
+        public ActionResult Create([Bind(Include = "employeerId,lastName,firstName")] Employeer employeer)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +56,6 @@ namespace MIS4200_golec.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName", employeer.employeerId);
             return View(employeer);
         }
 
@@ -74,7 +71,6 @@ namespace MIS4200_golec.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName", employeer.employeerId);
             return View(employeer);
         }
 
@@ -83,7 +79,7 @@ namespace MIS4200_golec.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "employeerId,lastName,firstName,employeeId")] Employeer employeer)
+        public ActionResult Edit([Bind(Include = "employeerId,lastName,firstName")] Employeer employeer)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +87,6 @@ namespace MIS4200_golec.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.employeeId = new SelectList(db.Employees, "employeeId", "firstName", employeer.employeerId);
             return View(employeer);
         }
 
