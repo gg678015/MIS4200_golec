@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<MIS4200_golec.Models.Employee>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List of Employees";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Employee", "Create Employee")
 </p>
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.firstName)

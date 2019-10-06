@@ -18,7 +18,8 @@ namespace MIS4200_golec.Controllers
         // GET: Departments
         public ActionResult Index()
         {
-            var departments = db.Departments.Include(d => d.Employee).Include(d => d.Employeer);
+            IQueryable<Departments> departments = db.Departments.Include(d => d.Employee).Include(d => d.Employeer);
+            ViewBag.ID = new SelectList(db.Employees, "ID", "fullName");
             return View(departments.ToList());
         }
 

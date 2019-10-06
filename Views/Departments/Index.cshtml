@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MIS4200_golec.Models.Departments>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List of Departments";
 }
 
 <h2>Index</h2>
@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-striped">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Employee.firstName)

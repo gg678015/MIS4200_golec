@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -9,7 +10,23 @@ namespace MIS4200_golec.Models
     {
         public int employeerId { get; set; }
         public string lastName { get; set; }
+        [Required(ErrorMessage = "Employeer First Name Required")]
+        [StringLength(20)]
+        [Display(Name = "Last Name")]
         public string firstName  { get; set; }
+        [Required(ErrorMessage = "Employeer First Name Required")]
+        [StringLength(20)]
+        [Display(Name = "First Name")]
+
+        public string fullName
+        {
+            get
+            {
+                return lastName + ", " + firstName;
+            }
+        }
+        [Display(Name = "Full Name")]
+
         // add any other fields as appropriate
         //Order is on the "one" side of a one-to-many relationship with OrderDetail
         //and we indicate that with an ICollection
