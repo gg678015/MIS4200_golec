@@ -9,14 +9,17 @@ namespace MIS4200_golec.Models
     public class Employeer
     {
         public int employeerId { get; set; }
-        public string lastName { get; set; }
+
         [Required(ErrorMessage = "Employeer Last Name Required")]
         [StringLength(20)]
         [Display(Name = "Employeer Last Name")]
-        public string firstName  { get; set; }
+        public string lastName { get; set; }
+
         [Required(ErrorMessage = "Employeer First Name Required")]
         [StringLength(20)]
         [Display(Name = "Employeer First Name")]
+        public string firstName  { get; set; }
+
 
         public string fullName
         {

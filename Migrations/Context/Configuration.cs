@@ -9,6 +9,7 @@ namespace MIS4200_golec.Migrations.Context
     {
         public Configuration()
         {
+            AutomaticMigrationDataLossAllowed = true;
             AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"Migrations\Context";
         }
